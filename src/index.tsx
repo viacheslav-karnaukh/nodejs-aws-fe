@@ -15,8 +15,8 @@ axios.interceptors.response.use(
     return response;
   },
   function({ response }) {
-    const errorMessage = response.data?.message || response.data;
-    const { status } = response;
+    const errorMessage = response?.data?.message || response?.data;
+    const status = response?.status;
     if (responseStatusesToAlert.has(status)) {
       alert(errorMessage);
     }
